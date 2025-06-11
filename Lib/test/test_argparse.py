@@ -2946,6 +2946,12 @@ class TestAddSubparsers(TestCase):
 
         sp3 = subparsers.add_parser("c")
         self.assertIsNone(sp3.description)
+        
+        sp4 = subparsers.add_parser("d", help="help d", description=None)
+        self.assertIsNone(sp4.description)
+        
+        sp5 = subparsers.add_parser("e", help="help e", description="")
+        self.assertEqual(sp5.description, "")
 
 # ============
 # Groups tests
